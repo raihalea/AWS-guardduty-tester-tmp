@@ -1,4 +1,3 @@
-import os
 from aws_cdk import (
     # Duration,
     Stack,
@@ -27,7 +26,6 @@ class EksEc2Stack(Stack):
             "tester",
             directory= "../tester"
         )
-        # image_url=ecr_asset.repository.repository_uri
         image_url=ecr_asset.image_uri
         
         print(image_url)
@@ -43,32 +41,5 @@ class EksEc2Stack(Stack):
                         "image": image_url
                     }]
                 }
-            },
-            # instance_type=ec2.InstanceType("t2.micro")
+            }
         )
-
-
-
-
-
-
-        # cluster.add
-
-        # task_definistion = ecs.Ec2TaskDefinition(
-        #     self,
-        #     "TaskDef",
-        #     network_mode=ecs.NetworkMode.BRIDGE
-        # )
-        # task_definistion.add_container(
-        #     "tester",
-        #     image=ecs.ContainerImage.from_asset("../tester/"),
-        #     memory_limit_mib=256,
-        #     logging=ecs.AwsLogDriver(stream_prefix="tester-fargate")
-        # )
-
-        # service = ecs.Ec2Service(
-        #     self,
-        #     "Service",
-        #     cluster=cluster,
-        #     task_definition=task_definistion
-        # )
