@@ -20,7 +20,8 @@ class EksFargateStack(Stack):
         log_group = logs.LogGroup(
             self,
             "Log Group",
-            log_group_name = "/guardduty-tester/" + self.stack_name
+            log_group_name = "/guardduty-tester/" + self.stack_name,
+            retention=logs.RetentionDays.ONE_WEEK
         )
 
         resolver_logging = route53resolver.CfnResolverQueryLoggingConfig(

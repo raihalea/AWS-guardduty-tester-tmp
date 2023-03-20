@@ -1,3 +1,3 @@
 #!/bin/bash
 dig guarddutyc2activityb.com
-sleep 300
+# sleep 300
